@@ -118,7 +118,7 @@ impl TextureDescriptorRef {
             depth,
         } = size;
         let count = (width.max(height).max(depth) as f64).log2().ceil() as _;
-        self.set_mipmap_level_count(count);
+        self.set_mipmap_level_count(count.try_into().unwrap());
     }
 
     pub fn sample_count(&self) -> NSUInteger {
