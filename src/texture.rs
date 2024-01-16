@@ -117,7 +117,7 @@ impl TextureDescriptorRef {
             height,
             depth,
         } = size;
-        let count = (width.max(height).max(depth) as f64).log2().ceil() as _;
+        let count = (width.max(height).max(depth) as f64).log2().ceil() as u64;
         self.set_mipmap_level_count(count.try_into().unwrap());
     }
 
